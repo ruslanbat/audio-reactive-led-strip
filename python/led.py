@@ -9,6 +9,7 @@ import config
 if config.DEVICE == 'esp8266':
     import socket
     _sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    _sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 # Raspberry Pi controls the LED strip directly
 elif config.DEVICE == 'pi':
     import neopixel
